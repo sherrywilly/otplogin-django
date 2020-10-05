@@ -72,14 +72,14 @@ def verify(request):
     if request.method =="POST" and request.is_ajax():
         phone = request.POST.get('ph')
         user = request.POST.get('user')
-        user_x = User.objects.get(username= "sherrywil")
+        user_x = User.objects.get(username=user)
         code = request.POST.get('otp')
         print(phone,user,code)
         print(user_x)
         if user_x.is_active:
             return JsonResponse({"status":"failed","message":"this user is already active"},)
         else:
-            userdata = Profile.objects.get(user=user_x.id,phone=9656007742)
+            userdata = Profile.objects.get(user=user_x.id,phone=phone)
             print(userdata)
             if int(code) == userdata.otp_x:
                 user_x.is_active = True

@@ -114,6 +114,7 @@
 				$('#id_user').val(res.user)
 				$('#id_ph').val(res.phone)
               $('#exampleModal').modal('show')
+              $('#form').trigger('reset')
 
 			}else{
 				console.log(res.errors.username[0])
@@ -144,7 +145,8 @@
      			$('#otphandler').trigger('reset')
 
      		}else{
-     			alert("failed to authenticate")
+     			alert("failed to authenticate please give a valid otp")
+     			$('#otphandler').trigger('reset')
      		}
 
 
