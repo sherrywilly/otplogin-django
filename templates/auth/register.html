@@ -114,10 +114,13 @@
 			$('#btn').text(res.status)
 
 			if(res.status ==="success"){
+				$('#id_user').val(res.user)
+				$('#id_ph').val(res.phone)
               $('#exampleModal').modal('show')
 
 			}else{
 				console.log(res.errors.username[0])
+				alert(res.errors.username[0])
 			}
 
 		}
@@ -137,6 +140,11 @@
      	dataType: 'json',
      	data:$('#otphandler').serialize(),
      	success:function(res){
+     		if(res.status==="success"){
+     			alert("user verified success fully")
+     		}else{
+     			alert("failed to authenticate")
+     		}
 
 
      	}
