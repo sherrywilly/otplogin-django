@@ -118,6 +118,7 @@
 			}else{
 				console.log(res.errors.username[0])
 				alert(res.errors.username[0])
+				$('#form').trigger('reset')
 			}
 
 		}
@@ -139,6 +140,9 @@
      	success:function(res){
      		if(res.status==="success"){
      			alert("user verified success fully")
+     			$('#exampleModal').modal('hide')
+     			$('#otphandler').trigger('reset')
+
      		}else{
      			alert("failed to authenticate")
      		}
